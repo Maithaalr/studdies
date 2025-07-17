@@ -248,20 +248,20 @@ if uploaded_file:
         # تأكد من وجود الأعمدة المطلوبة
         if 'المستوى التعليمي' in df.columns and 'درجة المؤهل' in df.columns:
             # المستويات المطلوبة
-            academic_levels = ['ثانوي', 'ثانوية عامة']
+            academic_levelsss = ['ثانوي', 'ثانوية عامة']
 
             # تصفية البيانات
-            filtered_df = df[
-                df['المستوى التعليمي'].isin(academic_levels) &
+            filtered_dff = df[
+                df['المستوى التعليمي'].isin(academic_levelsss) &
                 df['درجة المؤهل'].isnull()
             ]
 
             # عرض النتائج
-            st.write(f"عدد الموظفين الذين تنطبق عليهم الشروط: **{filtered_df.shape[0]}**")
-            st.dataframe(filtered_df)
+            st.write(f"عدد الموظفين الذين تنطبق عليهم الشروط: **{filtered_dff.shape[0]}**")
+            st.dataframe(filtered_dff)
 
             # زر تحميل النتائج كـ Excel
-            if not filtered_df.empty:
+            if not filtered_dff.empty:
                 output_excel = filtered_df.to_excel(index=False, encoding='utf-8')
                 st.download_button(
                     label="📥 تحميل النتائج كملف Excel",
