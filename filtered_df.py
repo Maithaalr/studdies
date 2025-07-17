@@ -214,13 +214,13 @@ if uploaded_file:
         st.markdown("### الموظفون الذين لديهم مؤهل دراسي معروف ولكن بدون درجة المؤهل")
 
         # تأكد من وجود الأعمدة المطلوبة
-        if 'المستوى الدراسي' in df.columns and 'درجة المؤهل' in df.columns:
+        if 'المستوى التعليمي' in df.columns and 'درجة المؤهل' in df.columns:
             # المستويات المطلوبة
             academic_levels = ['دبلوم', 'دبلوم عالي', 'بكالوريوس', 'ماجستير', 'دكتوراه', 'إنجاز']
 
             # تصفية البيانات
             filtered_df = df[
-                df['المستوى الدراسي'].isin(academic_levels) &
+                df['المستوى التعليمي'].isin(academic_levels) &
                 df['درجة المؤهل'].isnull()
             ]
 
